@@ -17,11 +17,16 @@ export class DataTableComponent implements AfterViewInit {
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
   dataSource: DataTableDataSource;
 
+  message:string="";
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name'];
 
-  constructor() {
+  constructor(private data: HeroesComponent) {
     this.dataSource = new DataTableDataSource();
+  }
+  ngOnInit(){
+    this.data.currentMessage.subscribe(message => this.message = message)
+    console.log(this.message)
   }
 
   ngAfterViewInit(): void {

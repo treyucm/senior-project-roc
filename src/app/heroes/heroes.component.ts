@@ -18,7 +18,7 @@ export class HeroesComponent implements OnInit {
   editHero: Hero | undefined; // the hero currently being edited
   heroName = '';
 
-  private messageSource = new BehaviorSubject<string>("test message");
+  private messageSource = new BehaviorSubject<string>("testtest");
   currentMessage = this.messageSource.asObservable();
 
   constructor(private heroesService: HeroesService) {}
